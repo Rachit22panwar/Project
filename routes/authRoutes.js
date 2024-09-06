@@ -1,6 +1,6 @@
 const express = require('express');
-const  {registerController, loginController, testController}  = require('../controller/authController');
-const {requireSignIn, isAdmin} = require("../middleware/authMiddleware");
+const { registerController, loginController, testController } = require('../controller/authController');
+const { requireSignIn, isAdmin } = require("../middleware/authMiddleware");
 
 //router object
 const router = express.Router();
@@ -13,6 +13,17 @@ router.post('/register', registerController);
 router.post('/login', loginController)
 
 //test routes
-router.get('/test', requireSignIn, isAdmin , testController);
+router.get('/test', requireSignIn, isAdmin, testController);
+
+//protected user routes
+router.get('/user-auth', requireSignIn, (req, res) => {
+    res.status(200).send({ ok: true });
+});
+
+//protected Admin routes
+router.get('/admin-auth', requireSignIn, isAdmin, (req, res) => {
+    res.status(200).send({ ok: true });
+});
+
 
 module.exports = router;

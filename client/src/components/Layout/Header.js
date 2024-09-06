@@ -3,6 +3,8 @@ import { NavLink, Link } from "react-router-dom";
 import { MdContactPage } from "react-icons/md";
 import { useAuth } from "../../context/auth";
 import toast from "react-hot-toast";
+
+
 const Header = () => {
   const [auth, setAuth] = useAuth();
   const handleLogout = () => {
@@ -62,18 +64,21 @@ const Header = () => {
                       {auth?.user?.name}
                     </NavLink>
                     <ul className="dropdown-menu">
-                      <li><NavLink to="/dashboard" className="dropdown-item">
+                      <li><NavLink to={`/dashboard/${auth?.user?.role === true ? "admin" : "user"
+                        }`}
+                        className="dropdown-item"
+                      >
                         Dashboard
-                      </NavLink></li>
+                      </NavLink>
+                      </li>
                       <NavLink onClick={handleLogout} to="/login" className="dropdown-item">
                         Logout
                       </NavLink>
                     </ul>
                   </li>
                   <li className="nav-item">
-                    <NavLink className="nav-link disabled"
-                      aria-disabled="true">
-                      Disabled
+                    <NavLink to="/cart" className="nav-link">
+                      CART(0)
                     </NavLink>
                   </li>
                 </>)
