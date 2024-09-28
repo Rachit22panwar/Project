@@ -10,7 +10,7 @@ const AllUsers = () => {
     // Function to fetch all users
     const fetchAllUsers = async () => {
         try {
-            const response = await axios.get('/api/v1/users/all-users');  // Assuming your API endpoint is set up like this
+            const response = await axios.get('/api/v1/user/all-users');  // Assuming your API endpoint is set up like this
             if (response.data.success) {
                 setUsers(response.data.users);
             }
