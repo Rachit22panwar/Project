@@ -1,9 +1,12 @@
 import React from 'react';
-import Layout from '../components/Layout/Layout';
+import Header from '../components/Layout/Header';
+import Footer from '../components/Layout/Footer';
+
 
 const Policy = () => {
   return (
-    <Layout>
+    <div>
+      <Header title={"Privacy Policy"} />
       <div className="row contactus ">
         <div className="col-md-6 ">
           <img
@@ -22,7 +25,8 @@ const Policy = () => {
           <p>add privacy policy</p>
         </div>
       </div>
-    </Layout>
+      <Footer />
+    </div>
   );
 };
 

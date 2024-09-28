@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
-import { MdContactPage } from "react-icons/md";
 import { useAuth } from "../../context/auth";
 import toast from "react-hot-toast";
+import '../../styles/Header.css';
 
 
 const Header = () => {
@@ -31,10 +31,14 @@ const Header = () => {
           >
             <span className="navbar-toggler-icon" />
           </button>
+          <Link to="/" className="logo">
+            <img
+            src="/image/Gnyanlogo.png"
+            alt="logo"
+          
+          />
+          </Link>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <Link to="/" className="navbar-brand">
-              <MdContactPage /> Resume Builder
-            </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <NavLink to="/" className="nav-link">

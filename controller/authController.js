@@ -1,5 +1,6 @@
-const { hashPassword, comparePassword } = require("../helper/authHelper");
-const userModel = require("../models/userModel");
+const { hashPassword, comparePassword } = require("../helper/authHelper.js");
+const userModel = require("../models/userModel.js");
+const orderModel = require("../models/orderModel.js");
 const JWT = require("jsonwebtoken");
 
 const registerController = async (req, res) => {
@@ -35,6 +36,7 @@ const registerController = async (req, res) => {
       email,
       phone,
       password: hashedPassword,
+      role,
     }).save();
 
     res.status(201).send({
@@ -104,4 +106,25 @@ const testController = (req, res) => {
   res.send("Procted Routes");
 };
 
-module.exports = { registerController, loginController, testController };
+
+
+//orders
+const getOrdersController = async (req, res) => {
+  try {
+    const orders = await orderModel
+      .find({ buyer: req.user._id })
+      .populate("buyer", "name");
+    res.json(orders);
+
+  } catch (error) {
+    console.log(error)
+    res.status(500).send({
+      success: false,
+      message: 'Error While Geting Orders',
+      error,
+    });
+  }
+};
+
+
+module.exports = { registerController, loginController, testController, getOrdersController };

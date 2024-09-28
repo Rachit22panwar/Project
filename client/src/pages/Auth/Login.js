@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import Layout from '../../components/Layout/Layout';
 import axios from 'axios';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import "../../styles/Authstyle.css";
 import { useAuth } from '../../context/auth';
+import Header from '../../components/Layout/Header';
+import Footer from '../../components/Layout/Footer';
 
 const Login = () => {
     const [email, SetEmail] = useState("");
@@ -40,10 +41,12 @@ const Login = () => {
         }
     };
     return (
-        <Layout title='Resume Builder App'>
+        <div>
+        <Header />
+        <div title='Resume Builder App'>
             <div className='form-container'>
                 <form onSubmit={handleSubmit}>
-                    <h4 className="title">Login Page </h4>
+                    <h4 className="title">Login Form </h4>
                     <div className="mb-3">
                         <input
                             type="email"
@@ -64,10 +67,16 @@ const Login = () => {
                             placeholder='Enter Password'
                             required />
                     </div>
-                    <button type="submit" className="btn btn-primary">Login</button>
+                    <button type="submit" className="btn btn-primary">SIGN</button>
+                    <div className="form-links">
+                    <Link to="/Reset" className="form-link">Forgot Password?</Link>
+                    <Link to="/Register" className="form-link"><u>Create New Account</u></Link>
+                    </div>
                 </form>
             </div>
-        </Layout>
+        </div>
+        <Footer />
+        </div>
     );
 };
 

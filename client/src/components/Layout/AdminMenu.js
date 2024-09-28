@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import '../../styles/Adminmenu.css'
 const AdminMenu = () => {
     return (
         <>
@@ -12,9 +13,9 @@ const AdminMenu = () => {
                         Upload Video
                     </NavLink>
                     <NavLink
-                        to="/dashboard/admin/add-lecture"
+                        to="/dashboard/admin/add-course"
                         className="list-group-item list-group-item-action">
-                        Add new Leacture
+                        Add new Course
                     </NavLink>
                     <NavLink
                         to="/dashboard/admin/users"

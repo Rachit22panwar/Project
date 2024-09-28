@@ -12,9 +12,10 @@ import AdminRoute from './components/Routes/AdminRoute';
 import AdminDashboard from './pages/Admin/AdminDashboard';
 import UploadVideo from './pages/Admin/UploadVideo';
 import Users from './pages/Admin/Users';
-import AddLecture from './pages/Admin/AddLecture';
 import Profile from './pages/user/Profile';
-import Order from './pages/user/Order';
+import Orders from './pages/user/Orders';
+import Payment from './pages/Payment';
+import AddCourse from './pages/Admin/AddCourse';
 
 function App() {
   return (
@@ -24,16 +25,17 @@ function App() {
         <Route path='/dashboard' element={<PrivateRoute />}>
           <Route path='user' element={<Dashboard />} />
           <Route path='user/profile' element={<Profile />} />
-          <Route path='user/orders' element={<Order />} />
+          <Route path='user/orders' element={<Orders />} />
         </Route>
         <Route path='/dashboard' element={<AdminRoute />} >
           <Route path='admin' element={<AdminDashboard />} />
           <Route path='admin/uplode-video' element={<UploadVideo />} />
-          <Route path='admin/add-lecture' element={<AddLecture />} />
+          <Route path='admin/add-course' element={<AddCourse />} />
           <Route path='admin/users' element={<Users />} />  
         </Route>
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/payment' element={<Payment />} />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/policy' element={<Policy />} />
